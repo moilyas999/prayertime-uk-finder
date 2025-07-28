@@ -104,6 +104,110 @@ export type Database = {
         }
         Relationships: []
       }
+      donations: {
+        Row: {
+          amount: number
+          created_at: string
+          currency: string
+          donor_email: string | null
+          donor_name: string | null
+          id: string
+          is_anonymous: boolean
+          message: string | null
+          mosque_id: string
+          payment_method: string | null
+          status: string
+          transaction_reference: string | null
+          user_id: string | null
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          currency?: string
+          donor_email?: string | null
+          donor_name?: string | null
+          id?: string
+          is_anonymous?: boolean
+          message?: string | null
+          mosque_id: string
+          payment_method?: string | null
+          status?: string
+          transaction_reference?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          currency?: string
+          donor_email?: string | null
+          donor_name?: string | null
+          id?: string
+          is_anonymous?: boolean
+          message?: string | null
+          mosque_id?: string
+          payment_method?: string | null
+          status?: string
+          transaction_reference?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "donations_mosque_id_fkey"
+            columns: ["mosque_id"]
+            isOneToOne: false
+            referencedRelation: "mosques"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      mosques: {
+        Row: {
+          address: string | null
+          admin_email: string
+          approved: boolean
+          created_at: string
+          donation_goal: number | null
+          id: string
+          logo_url: string | null
+          name: string
+          phone: string | null
+          postcode: string
+          updated_at: string
+          website_url: string | null
+          widget_theme: Json | null
+        }
+        Insert: {
+          address?: string | null
+          admin_email: string
+          approved?: boolean
+          created_at?: string
+          donation_goal?: number | null
+          id?: string
+          logo_url?: string | null
+          name: string
+          phone?: string | null
+          postcode: string
+          updated_at?: string
+          website_url?: string | null
+          widget_theme?: Json | null
+        }
+        Update: {
+          address?: string | null
+          admin_email?: string
+          approved?: boolean
+          created_at?: string
+          donation_goal?: number | null
+          id?: string
+          logo_url?: string | null
+          name?: string
+          phone?: string | null
+          postcode?: string
+          updated_at?: string
+          website_url?: string | null
+          widget_theme?: Json | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -187,6 +291,39 @@ export type Database = {
           id?: string
           notification_time?: string | null
           updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_preferences: {
+        Row: {
+          auto_location_enabled: boolean
+          created_at: string
+          default_postcode: string | null
+          id: string
+          prayer_method: number
+          updated_at: string
+          use_current_location: boolean
+          user_id: string
+        }
+        Insert: {
+          auto_location_enabled?: boolean
+          created_at?: string
+          default_postcode?: string | null
+          id?: string
+          prayer_method?: number
+          updated_at?: string
+          use_current_location?: boolean
+          user_id: string
+        }
+        Update: {
+          auto_location_enabled?: boolean
+          created_at?: string
+          default_postcode?: string | null
+          id?: string
+          prayer_method?: number
+          updated_at?: string
+          use_current_location?: boolean
           user_id?: string
         }
         Relationships: []
