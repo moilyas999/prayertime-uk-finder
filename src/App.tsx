@@ -19,6 +19,11 @@ import WidgetEmbed from "./pages/WidgetEmbed";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import AzanSettingsPage from "./pages/AzanSettingsPage";
+import ThemesPage from "./pages/ThemesPage";
+import IslamicCalendarPage from "./pages/IslamicCalendarPage";
+import IqamaSubmitPage from "./pages/IqamaSubmitPage";
+import MosqueAnalyticsPage from "./pages/MosqueAnalyticsPage";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +47,11 @@ const App = () => (
             <Route path="/mosque-admin" element={<MosqueAdminPage />} />
             <Route path="/widget" element={<WidgetPage />} />
             <Route path="/embed/:widgetId" element={<WidgetEmbed />} />
+            <Route path="/azan-settings" element={<AzanSettingsPage />} />
+            <Route path="/themes" element={<ThemesPage />} />
+            <Route path="/islamic-calendar" element={<IslamicCalendarPage />} />
+            <Route path="/iqama-submit" element={<IqamaSubmitPage />} />
+            <Route path="/mosque-analytics" element={<MosqueAnalyticsPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

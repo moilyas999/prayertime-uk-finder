@@ -160,6 +160,62 @@ export type Database = {
           },
         ]
       }
+      iqama_times: {
+        Row: {
+          approved: boolean
+          asr: string | null
+          created_at: string
+          dhuhr: string | null
+          fajr: string | null
+          id: string
+          isha: string | null
+          maghrib: string | null
+          mosque_id: string
+          notes: string | null
+          recurring: boolean
+          submitted_by_email: string | null
+          updated_at: string
+        }
+        Insert: {
+          approved?: boolean
+          asr?: string | null
+          created_at?: string
+          dhuhr?: string | null
+          fajr?: string | null
+          id?: string
+          isha?: string | null
+          maghrib?: string | null
+          mosque_id: string
+          notes?: string | null
+          recurring?: boolean
+          submitted_by_email?: string | null
+          updated_at?: string
+        }
+        Update: {
+          approved?: boolean
+          asr?: string | null
+          created_at?: string
+          dhuhr?: string | null
+          fajr?: string | null
+          id?: string
+          isha?: string | null
+          maghrib?: string | null
+          mosque_id?: string
+          notes?: string | null
+          recurring?: boolean
+          submitted_by_email?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "iqama_times_mosque_id_fkey"
+            columns: ["mosque_id"]
+            isOneToOne: false
+            referencedRelation: "mosques"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       mosques: {
         Row: {
           address: string | null
@@ -354,6 +410,54 @@ export type Database = {
           postcode?: string
         }
         Relationships: []
+      }
+      widget_analytics: {
+        Row: {
+          created_at: string
+          date: string
+          id: string
+          mosque_id: string | null
+          region: string | null
+          updated_at: string
+          views: number
+          widget_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          date?: string
+          id?: string
+          mosque_id?: string | null
+          region?: string | null
+          updated_at?: string
+          views?: number
+          widget_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          id?: string
+          mosque_id?: string | null
+          region?: string | null
+          updated_at?: string
+          views?: number
+          widget_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "widget_analytics_mosque_id_fkey"
+            columns: ["mosque_id"]
+            isOneToOne: false
+            referencedRelation: "mosques"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "widget_analytics_widget_id_fkey"
+            columns: ["widget_id"]
+            isOneToOne: false
+            referencedRelation: "widget_instances"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       widget_instances: {
         Row: {
