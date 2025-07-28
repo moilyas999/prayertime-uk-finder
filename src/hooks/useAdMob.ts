@@ -19,11 +19,13 @@ export function useAdMob() {
 
   const initializeAdMob = async () => {
     try {
-      await AdMob.initialize({
-        testingDevices: [], // Add device IDs for testing
-        initializeForTesting: true, // Remove in production
-      });
-      setIsInitialized(true);
+      // AdMob temporarily disabled to prevent app crashes
+      // await AdMob.initialize({
+      //   testingDevices: [], // Add device IDs for testing
+      //   initializeForTesting: true, // Remove in production
+      // });
+      // setIsInitialized(true);
+      console.log('AdMob initialization skipped');
     } catch (error) {
       console.error('Failed to initialize AdMob:', error);
     }
@@ -48,43 +50,49 @@ export function useAdMob() {
   };
 
   const showBannerAd = async (location: string) => {
-    if (!isInitialized || !isAdEnabled('banner', location)) return;
+    // AdMob temporarily disabled to prevent app crashes
+    return;
+    // if (!isInitialized || !isAdEnabled('banner', location)) return;
 
-    try {
-      const options: BannerAdOptions = {
-        adId: 'ca-app-pub-3940256099942544/6300978111', // Test banner ad unit
-        adSize: BannerAdSize.BANNER,
-        position: BannerAdPosition.BOTTOM_CENTER,
-        margin: 0,
-      };
+    // try {
+    //   const options: BannerAdOptions = {
+    //     adId: 'ca-app-pub-3940256099942544/6300978111', // Test banner ad unit
+    //     adSize: BannerAdSize.BANNER,
+    //     position: BannerAdPosition.BOTTOM_CENTER,
+    //     margin: 0,
+    //   };
 
-      await AdMob.showBanner(options);
-    } catch (error) {
-      console.error('Error showing banner ad:', error);
-    }
+    //   await AdMob.showBanner(options);
+    // } catch (error) {
+    //   console.error('Error showing banner ad:', error);
+    // }
   };
 
   const hideBannerAd = async () => {
-    try {
-      await AdMob.hideBanner();
-    } catch (error) {
-      console.error('Error hiding banner ad:', error);
-    }
+    // AdMob temporarily disabled to prevent app crashes
+    return;
+    // try {
+    //   await AdMob.hideBanner();
+    // } catch (error) {
+    //   console.error('Error hiding banner ad:', error);
+    // }
   };
 
   const showInterstitialAd = async (location: string) => {
-    if (!isInitialized || !isAdEnabled('interstitial', location)) return;
+    // AdMob temporarily disabled to prevent app crashes
+    return;
+    // if (!isInitialized || !isAdEnabled('interstitial', location)) return;
 
-    try {
-      const options = {
-        adId: 'ca-app-pub-3940256099942544/1033173712', // Test interstitial ad unit
-      };
+    // try {
+    //   const options = {
+    //     adId: 'ca-app-pub-3940256099942544/1033173712', // Test interstitial ad unit
+    //   };
 
-      await AdMob.prepareInterstitial(options);
-      await AdMob.showInterstitial();
-    } catch (error) {
-      console.error('Error showing interstitial ad:', error);
-    }
+    //   await AdMob.prepareInterstitial(options);
+    //   await AdMob.showInterstitial();
+    // } catch (error) {
+    //   console.error('Error showing interstitial ad:', error);
+    // }
   };
 
   return {
