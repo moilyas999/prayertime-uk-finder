@@ -1,100 +1,78 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 import { MapPin, Search } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 
 interface PostcodeInputProps {
-  onSubmit: (postcode: string) => void;
+  onSearch?: (postcode: string) => void;
+  onSubmit?: (postcode: string) => Promise<void>;
+  isLoading?: boolean;
   loading?: boolean;
 }
 
-export function PostcodeInput({ onSubmit, loading = false }: PostcodeInputProps) {
+export function PostcodeInput({ onSearch, onSubmit, isLoading = false, loading = false }: PostcodeInputProps) {
   const [postcode, setPostcode] = useState("");
-  const { toast } = useToast();
 
-  const validatePostcode = (code: string): boolean => {
-    // UK postcode regex pattern
-    const ukPostcodeRegex = /^[A-Z]{1,2}[0-9R][0-9A-Z]?\s?[0-9][A-Z]{2}$/i;
-    return ukPostcodeRegex.test(code.trim());
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const cleanPostcode = postcode.trim().toUpperCase();
-    
-    if (!cleanPostcode) {
-      toast({
-        title: "Postcode Required",
-        description: "Please enter your UK postcode",
-        variant: "destructive"
-      });
-      return;
+    if (postcode.trim()) {
+      if (onSubmit) {
+        await onSubmit(postcode.trim());
+      } else if (onSearch) {
+        onSearch(postcode.trim());
+      }
     }
-
-    if (!validatePostcode(cleanPostcode)) {
-      toast({
-        title: "Invalid Postcode",
-        description: "Please enter a valid UK postcode (e.g., SW1A 1AA)",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    onSubmit(cleanPostcode);
   };
+
+  const validatePostcode = (value: string) => {
+    // UK postcode validation pattern
+    const ukPostcodeRegex = /^[A-Z]{1,2}\d[A-Z\d]?\s?\d[A-Z]{2}$/i;
+    return ukPostcodeRegex.test(value.replace(/\s/g, ""));
+  };
+
+  const formatPostcode = (value: string) => {
+    // Format postcode with space
+    const cleaned = value.replace(/\s/g, "").toUpperCase();
+    if (cleaned.length > 3) {
+      return cleaned.slice(0, -3) + " " + cleaned.slice(-3);
+    }
+    return cleaned;
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPostcode(e.target.value);
+    setPostcode(formatted);
+  };
+
+  const isValid = postcode.trim() && validatePostcode(postcode);
 
   return (
-    <Card className="p-6 max-w-md mx-auto">
-      <div className="text-center mb-6">
-        <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
-          <MapPin className="h-6 w-6 text-primary" />
-        </div>
-        <h2 className="text-xl font-semibold mb-2">Enter Your Postcode</h2>
-        <p className="text-muted-foreground text-sm">
-          Get accurate prayer times for your location in the UK
-        </p>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="space-y-2">
+        <Label htmlFor="postcode" className="flex items-center gap-2 text-muted-foreground">
+          <MapPin className="h-4 w-4" />
+          UK Postcode
+        </Label>
+        <Input
+          id="postcode"
+          type="text"
+          placeholder="e.g. SW1A 1AA"
+          value={postcode}
+          onChange={handleInputChange}
+          className="text-center text-lg font-semibold bg-background border-border"
+          maxLength={8}
+          disabled={isLoading || loading}
+        />
       </div>
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <Input
-            type="text"
-            placeholder="e.g., SW1A 1AA"
-            value={postcode}
-            onChange={(e) => setPostcode(e.target.value.toUpperCase())}
-            className="text-center text-lg font-mono"
-            maxLength={8}
-            disabled={loading}
-            aria-label="Enter your UK postcode"
-            aria-describedby="postcode-help"
-          />
-          <p id="postcode-help" className="text-xs text-muted-foreground mt-1 text-center">
-            Enter any valid UK postcode
-          </p>
-        </div>
-
-        <Button 
-          type="submit" 
-          className="w-full" 
-          size="lg"
-          disabled={loading}
-        >
-          {loading ? (
-            <>
-              <Search className="mr-2 h-4 w-4 animate-spin" />
-              Finding Prayer Times...
-            </>
-          ) : (
-            <>
-              <Search className="mr-2 h-4 w-4" />
-              Show Prayer Times
-            </>
-          )}
-        </Button>
-      </form>
-    </Card>
+      <Button 
+        type="submit"
+        disabled={!isValid || isLoading || loading}
+        className="w-full h-12 text-lg font-semibold bg-primary hover:bg-primary/90 text-primary-foreground disabled:opacity-50"
+      >
+        <Search className="mr-2 h-5 w-5" />
+        {isLoading || loading ? "Searching..." : "Find Prayer Times"}
+      </Button>
+    </form>
   );
 }

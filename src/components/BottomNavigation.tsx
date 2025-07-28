@@ -1,10 +1,10 @@
-import { Clock, Calendar, MapPin, Megaphone, Settings } from 'lucide-react';
+import { Clock, Settings, Home } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 const navigationItems = [
-  { icon: Clock, label: 'Home', path: '/', activeFor: ['/'] },
-  { icon: MapPin, label: 'Prayer Times', path: '/prayer-times' },
+  { icon: Home, label: 'Home', path: '/', activeFor: ['/'] },
+  { icon: Clock, label: 'Prayer Times', path: '/prayer-times' },
   { icon: Settings, label: 'Settings', path: '/settings' }
 ];
 
