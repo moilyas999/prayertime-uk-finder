@@ -14,6 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      analytics: {
+        Row: {
+          id: string
+          lat: number | null
+          lng: number | null
+          postcode: string
+          search_time: string
+        }
+        Insert: {
+          id?: string
+          lat?: number | null
+          lng?: number | null
+          postcode: string
+          search_time?: string
+        }
+        Update: {
+          id?: string
+          lat?: number | null
+          lng?: number | null
+          postcode?: string
+          search_time?: string
+        }
+        Relationships: []
+      }
       business_profiles: {
         Row: {
           approved: boolean
@@ -104,6 +128,33 @@ export type Database = {
           role?: Database["public"]["Enums"]["user_role"]
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      users_reminder_signups: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          name: string
+          phone: string | null
+          postcode: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          phone?: string | null
+          postcode: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          phone?: string | null
+          postcode?: string
         }
         Relationships: []
       }
