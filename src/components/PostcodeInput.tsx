@@ -68,8 +68,10 @@ export function PostcodeInput({ onSubmit, loading = false }: PostcodeInputProps)
             className="text-center text-lg font-mono"
             maxLength={8}
             disabled={loading}
+            aria-label="Enter your UK postcode"
+            aria-describedby="postcode-help"
           />
-          <p className="text-xs text-muted-foreground mt-1 text-center">
+          <p id="postcode-help" className="text-xs text-muted-foreground mt-1 text-center">
             Enter any valid UK postcode
           </p>
         </div>

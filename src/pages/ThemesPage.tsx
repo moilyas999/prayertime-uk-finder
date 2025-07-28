@@ -15,21 +15,21 @@ export default function ThemesPage() {
       name: 'Light Mode',
       description: 'Clean and bright interface',
       icon: Sun,
-      preview: 'bg-white border-gray-200 text-gray-900'
+      preview: 'bg-background border-border text-foreground'
     },
     {
       id: 'dark' as ThemeMode,
       name: 'Dark Mode',
       description: 'Easy on the eyes, perfect for night',
       icon: Moon,
-      preview: 'bg-gray-900 border-gray-700 text-white'
+      preview: 'bg-background border-border text-foreground'
     },
     {
       id: 'mosque' as ThemeMode,
       name: 'Mosque Branded',
       description: 'Match your local mosque colors',
       icon: Building,
-      preview: 'bg-gradient-to-r from-prayer-active to-prayer-upcoming text-white'
+      preview: 'bg-gradient-to-r from-prayer-active to-prayer-upcoming text-primary-foreground'
     }
   ];
 

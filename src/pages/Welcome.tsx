@@ -7,10 +7,10 @@ export default function Welcome() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-day flex items-center justify-center p-4">
+    <main className="min-h-screen bg-gradient-day flex items-center justify-center p-4">
       <div className="max-w-md mx-auto text-center space-y-8">
         {/* Logo/Header */}
-        <div className="space-y-4">
+        <header className="space-y-4">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-4">
             <Clock className="h-10 w-10 text-primary" />
           </div>
@@ -20,9 +20,10 @@ export default function Welcome() {
               Accurate UK Prayer Times
             </p>
           </div>
-        </div>
+        </header>
 
         {/* Features */}
+        <section>
         <Card className="p-6 text-left">
           <h2 className="text-lg font-semibold mb-4 text-center">Features</h2>
           <div className="space-y-3">
@@ -44,13 +45,15 @@ export default function Welcome() {
             </div>
           </div>
         </Card>
+        </section>
 
         {/* CTA */}
-        <div className="space-y-4">
+        <section className="space-y-4">
           <Button 
             size="lg" 
             className="w-full text-lg py-6"
             onClick={() => navigate('/location-access')}
+            aria-label="Use my current location to find prayer times"
           >
             📍 Use My Location
           </Button>
@@ -60,6 +63,7 @@ export default function Welcome() {
             size="lg" 
             className="w-full text-lg py-6"
             onClick={() => navigate('/postcode')}
+            aria-label="Enter UK postcode to find prayer times"
           >
             📮 Enter Postcode
           </Button>
@@ -91,8 +95,8 @@ export default function Welcome() {
           <p className="text-xs text-muted-foreground">
             Supporting Muslims across the United Kingdom
           </p>
-        </div>
+        </section>
       </div>
-    </div>
+    </main>
   );
 }

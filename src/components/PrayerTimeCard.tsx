@@ -63,9 +63,6 @@ export function PrayerTimeCard({ prayer, isNext = false }: PrayerTimeCardProps) 
           prayer.status === 'current' && "text-primary font-bold text-lg"
         )}>
           <span className="font-mono text-lg">{prayer.time}</span>
-          {isNext && (
-            <p className="text-xs text-muted-foreground mt-1">In 2h 14m</p>
-          )}
         </div>
       </div>
     </div>

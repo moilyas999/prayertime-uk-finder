@@ -47,7 +47,7 @@ export function CountdownTimer({ targetTime, prayerName }: CountdownTimerProps) 
   }, [targetTime]);
 
   return (
-    <Card className="p-6 bg-gradient-day border-prayer-upcoming">
+    <Card className="p-6 bg-gradient-day border-prayer-upcoming/30">
       <div className="text-center">
         <div className="flex items-center justify-center gap-2 mb-2">
           <Clock className="h-5 w-5 text-prayer-upcoming" />

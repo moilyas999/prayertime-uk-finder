@@ -117,7 +117,7 @@ export default function ResultsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-day">
+    <main className="min-h-screen bg-gradient-day">
       {/* Header */}
       <div className="p-4 flex items-center justify-between">
         <Button 
@@ -222,6 +222,6 @@ export default function ResultsPage() {
           </>
         )}
       </div>
-    </div>
+    </main>
   );
 }

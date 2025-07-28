@@ -160,9 +160,9 @@ export default function WidgetEmbed() {
     return (
       <div className={cn(
         "p-4 text-center",
-        config?.theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
+        config?.theme === 'dark' ? 'bg-card text-card-foreground' : 'bg-card text-card-foreground'
       )}>
-        <Clock className="h-8 w-8 mx-auto mb-2 text-red-500" />
+        <Clock className="h-8 w-8 mx-auto mb-2 text-destructive" />
         <p className="font-semibold">Error</p>
         <p className="text-sm opacity-75">{error}</p>
       </div>
@@ -171,9 +171,9 @@ export default function WidgetEmbed() {
 
   if (loading || !config) {
     return (
-      <div className="p-4 text-center bg-white">
-        <RefreshCw className="h-6 w-6 animate-spin mx-auto mb-2 text-blue-600" />
-        <p className="text-sm text-gray-600">Loading prayer times...</p>
+      <div className="p-4 text-center bg-card text-card-foreground">
+        <RefreshCw className="h-6 w-6 animate-spin mx-auto mb-2 text-primary" />
+        <p className="text-sm text-muted-foreground">Loading prayer times...</p>
       </div>
     );
   }
@@ -184,13 +184,13 @@ export default function WidgetEmbed() {
   return (
     <div className={cn(
       "p-3 min-h-full",
-      isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900',
+      isDark ? 'bg-card text-card-foreground' : 'bg-card text-card-foreground',
       "font-sans"
     )}>
       {/* Header */}
       <div className="text-center mb-4">
         <div className="flex items-center justify-center gap-2 mb-2">
-          <Clock className={cn("h-4 w-4", isDark ? 'text-blue-400' : 'text-blue-600')} />
+          <Clock className={cn("h-4 w-4", isDark ? 'text-primary' : 'text-primary')} />
           <h1 className="font-bold text-lg">SalahClock</h1>
         </div>
         <div className="flex items-center justify-center gap-1 text-xs opacity-75">
@@ -208,7 +208,7 @@ export default function WidgetEmbed() {
         <div className="mb-4">
           <div className={cn(
             "p-3 rounded-lg text-center",
-            isDark ? 'bg-blue-900/50 border border-blue-700' : 'bg-blue-50 border border-blue-200'
+            isDark ? 'bg-primary/20 border border-primary' : 'bg-primary/10 border border-primary/30'
           )}>
             <p className="text-xs opacity-75 mb-1">Time until {nextPrayer.name}</p>
             <div className="font-mono text-sm font-bold">
@@ -225,14 +225,14 @@ export default function WidgetEmbed() {
             key={prayer.name}
             className={cn(
               "flex items-center justify-between p-2 rounded border",
-              nextPrayer?.name === prayer.name && (isDark ? 'bg-yellow-900/20 border-yellow-600' : 'bg-yellow-50 border-yellow-300'),
+              nextPrayer?.name === prayer.name && (isDark ? 'bg-accent/20 border-accent' : 'bg-accent/10 border-accent/30'),
               prayer.status === 'past' && 'opacity-60',
-              isDark ? 'border-gray-700' : 'border-gray-200'
+              isDark ? 'border-border' : 'border-border'
             )}
           >
             <span className={cn(
               "font-medium text-sm",
-              nextPrayer?.name === prayer.name && (isDark ? 'text-yellow-400' : 'text-yellow-700')
+              nextPrayer?.name === prayer.name && (isDark ? 'text-accent' : 'text-accent')
             )}>
               {prayer.name}
             </span>
@@ -247,13 +247,13 @@ export default function WidgetEmbed() {
       </div>
 
       {/* Footer */}
-      <div className="text-center mt-3 pt-2 border-t border-gray-200 dark:border-gray-700">
+      <div className="text-center mt-3 pt-2 border-t border-border">
         <a 
           href="https://salahclock.uk" 
           target="_parent"
           className={cn(
             "text-xs opacity-60 hover:opacity-80 transition-opacity",
-            isDark ? 'text-blue-400' : 'text-blue-600'
+            isDark ? 'text-primary' : 'text-primary'
           )}
         >
           Powered by SalahClock.uk

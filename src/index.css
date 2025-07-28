@@ -46,6 +46,10 @@
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(158 86% 25%), hsl(158 86% 35%));
     --gradient-welcome: linear-gradient(180deg, hsl(158 86% 25%), hsl(158 60% 45%));
+    --gradient-day: linear-gradient(180deg, hsl(158 10% 95%), hsl(158 10% 98%));
+    --gradient-dawn: linear-gradient(180deg, hsl(45 50% 85%), hsl(45 30% 95%));
+    --gradient-sunset: linear-gradient(180deg, hsl(25 70% 85%), hsl(25 50% 95%));
+    --gradient-night: linear-gradient(180deg, hsl(240 20% 15%), hsl(240 15% 25%));
     
     /* Shadows */
     --shadow-card: 0 2px 8px hsl(0 0% 0% / 0.08);
@@ -86,6 +90,10 @@
     --input: 0 0% 15%;
     
     --gradient-welcome: linear-gradient(180deg, hsl(158 86% 20%), hsl(158 60% 30%));
+    --gradient-day: linear-gradient(180deg, hsl(158 5% 10%), hsl(158 5% 15%));
+    --gradient-dawn: linear-gradient(180deg, hsl(45 30% 20%), hsl(45 20% 25%));
+    --gradient-sunset: linear-gradient(180deg, hsl(25 50% 20%), hsl(25 30% 25%));
+    --gradient-night: linear-gradient(180deg, hsl(240 40% 8%), hsl(240 35% 12%));
     
     --sidebar-background: 0 0% 7%;
     --sidebar-foreground: 0 0% 98%;

@@ -114,6 +114,8 @@ export default {
 				'countdown': 'countdown 1s ease-in-out infinite alternate'
 			},
 			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-welcome': 'var(--gradient-welcome)',
 				'gradient-dawn': 'var(--gradient-dawn)',
 				'gradient-day': 'var(--gradient-day)',
 				'gradient-sunset': 'var(--gradient-sunset)',
