@@ -3,10 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 const navigationItems = [
-  { icon: Clock, label: 'Prayer Times', path: '/results', activeFor: ['/results', '/'] },
-  { icon: Calendar, label: 'Forecast', path: '/forecast' },
-  { icon: MapPin, label: 'Mosques', path: '/mosque-map' },
-  { icon: Megaphone, label: 'Jumuah', path: '/jumuah' },
+  { icon: Clock, label: 'Home', path: '/', activeFor: ['/'] },
+  { icon: MapPin, label: 'Prayer Times', path: '/prayer-times' },
   { icon: Settings, label: 'Settings', path: '/settings' }
 ];
 
@@ -22,8 +20,8 @@ export function BottomNavigation() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border z-50">
-      <div className="grid grid-cols-5 h-16">
+    <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-sm border-t border-border z-50 safe-area-inset-bottom">
+      <div className="grid grid-cols-3 h-16">
         {navigationItems.map((item) => {
           const Icon = item.icon;
           const active = isActive(item);
