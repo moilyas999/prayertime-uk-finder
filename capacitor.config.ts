@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'app.lovable.36e9019d1f564ad5be2f43e6ec5e47c4',
+  appId: 'com.salahclock.prayertimes',
   appName: 'prayertime-uk-finder',
   webDir: 'dist',
   server: {
