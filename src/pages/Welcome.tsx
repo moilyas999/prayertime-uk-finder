@@ -54,6 +54,24 @@ export default function Welcome() {
           >
             Get Started
           </Button>
+          
+          <div className="flex gap-2">
+            <Button 
+              variant="outline" 
+              className="flex-1"
+              onClick={() => navigate('/auth')}
+            >
+              Sign In
+            </Button>
+            <Button 
+              variant="outline" 
+              className="flex-1"
+              onClick={() => navigate('/widget')}
+            >
+              Widget
+            </Button>
+          </div>
+          
           <p className="text-xs text-muted-foreground">
             Supporting Muslims across the United Kingdom
           </p>
