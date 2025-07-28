@@ -11,6 +11,9 @@ import RemindersPage from "./pages/RemindersPage";
 import AuthPage from "./pages/AuthPage";
 import AccountPage from "./pages/AccountPage";
 import NotificationsPage from "./pages/NotificationsPage";
+import LocationAccessPage from "./pages/LocationAccessPage";
+import ForecastPage from "./pages/ForecastPage";
+import MosqueAdminPage from "./pages/MosqueAdminPage";
 import WidgetPage from "./pages/WidgetPage";
 import WidgetEmbed from "./pages/WidgetEmbed";
 import About from "./pages/About";
@@ -28,12 +31,15 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Welcome />} />
+            <Route path="/location-access" element={<LocationAccessPage />} />
             <Route path="/postcode" element={<PostcodePage />} />
             <Route path="/results" element={<ResultsPage />} />
+            <Route path="/forecast" element={<ForecastPage />} />
             <Route path="/reminders" element={<RemindersPage />} />
             <Route path="/auth" element={<AuthPage />} />
             <Route path="/account" element={<AccountPage />} />
             <Route path="/notifications" element={<NotificationsPage />} />
+            <Route path="/mosque-admin" element={<MosqueAdminPage />} />
             <Route path="/widget" element={<WidgetPage />} />
             <Route path="/embed/:widgetId" element={<WidgetEmbed />} />
             <Route path="/about" element={<About />} />

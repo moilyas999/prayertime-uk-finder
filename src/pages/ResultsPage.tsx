@@ -181,6 +181,29 @@ export default function ResultsPage() {
               ))}
             </div>
 
+            {/* Forecast Button */}
+            <Card className="p-4 text-center bg-primary/10 border-primary mb-4">
+              <h3 className="font-semibold text-lg mb-2">📅 Plan Ahead</h3>
+              <p className="text-muted-foreground mb-4 text-sm">
+                View 30-day prayer time forecast and download PDF calendar
+              </p>
+              <Button 
+                variant="default" 
+                size="lg"
+                onClick={() => {
+                  const params = new URLSearchParams();
+                  if (postcode) params.set('postcode', postcode);
+                  if (lat) params.set('lat', lat);
+                  if (lng) params.set('lng', lng);
+                  const location = new URLSearchParams(window.location.search).get('location');
+                  if (location) params.set('location', location);
+                  navigate(`/forecast?${params.toString()}`);
+                }}
+              >
+                View 30-Day Forecast
+              </Button>
+            </Card>
+
             {/* Reminder CTA */}
             <Card className="p-6 text-center bg-secondary/10 border-secondary">
               <Bell className="h-8 w-8 text-secondary mx-auto mb-3" />

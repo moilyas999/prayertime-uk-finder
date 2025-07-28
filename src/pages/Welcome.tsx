@@ -50,9 +50,18 @@ export default function Welcome() {
           <Button 
             size="lg" 
             className="w-full text-lg py-6"
+            onClick={() => navigate('/location-access')}
+          >
+            📍 Use My Location
+          </Button>
+          
+          <Button 
+            variant="outline"
+            size="lg" 
+            className="w-full text-lg py-6"
             onClick={() => navigate('/postcode')}
           >
-            Get Started
+            📮 Enter Postcode
           </Button>
           
           <div className="flex gap-2">
@@ -69,6 +78,13 @@ export default function Welcome() {
               onClick={() => navigate('/widget')}
             >
               Widget
+            </Button>
+            <Button 
+              variant="outline" 
+              className="flex-1"
+              onClick={() => navigate('/mosque-admin')}
+            >
+              Mosque
             </Button>
           </div>
           
