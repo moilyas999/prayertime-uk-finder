@@ -131,6 +131,66 @@ export type Database = {
         }
         Relationships: []
       }
+      user_accounts: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          postcode: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          postcode?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          postcode?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_notification_settings: {
+        Row: {
+          device_token: string | null
+          enable_email: boolean
+          enable_push: boolean
+          enable_sms: boolean
+          id: string
+          notification_time: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          device_token?: string | null
+          enable_email?: boolean
+          enable_push?: boolean
+          enable_sms?: boolean
+          id?: string
+          notification_time?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          device_token?: string | null
+          enable_email?: boolean
+          enable_push?: boolean
+          enable_sms?: boolean
+          id?: string
+          notification_time?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       users_reminder_signups: {
         Row: {
           created_at: string
@@ -155,6 +215,33 @@ export type Database = {
           name?: string
           phone?: string | null
           postcode?: string
+        }
+        Relationships: []
+      }
+      widget_instances: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          id: string
+          postcode: string
+          size: string
+          theme: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          postcode: string
+          size?: string
+          theme?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          postcode?: string
+          size?: string
+          theme?: string
         }
         Relationships: []
       }
