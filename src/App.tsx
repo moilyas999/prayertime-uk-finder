@@ -8,16 +8,17 @@ import PrayerTimesPage from "./pages/PrayerTimesPage";
 import SettingsPage from "./pages/SettingsPage";
 import { BottomNavigation } from "./components/BottomNavigation";
 
-const App: React.FC = () => {
-  const queryClient = React.useMemo(() => new QueryClient({
-    defaultOptions: {
-      queries: {
-        staleTime: 1000 * 60 * 5, // 5 minutes
-        retry: 1,
-      },
+// Create QueryClient outside component to avoid hooks issues
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      retry: 1,
     },
-  }), []);
+  },
+});
 
+const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
