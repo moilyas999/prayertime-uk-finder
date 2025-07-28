@@ -26,45 +26,48 @@ export function PrayerTimeCard({ prayer, isNext = false }: PrayerTimeCardProps) 
   const Icon = prayerIcons[prayer.name as keyof typeof prayerIcons] || Clock;
   
   return (
-    <Card className={cn(
-      "p-4 transition-all duration-300 hover:shadow-lg",
-      isNext && "border-prayer-active bg-secondary/10 shadow-md animate-pulse-glow",
-      prayer.status === 'current' && "border-prayer-active bg-prayer-active/10",
-      prayer.status === 'past' && "opacity-70 grayscale",
-      prayer.status === 'upcoming' && "border-prayer-upcoming"
+    <div className={cn(
+      "bg-card rounded-2xl p-4 shadow-[0_2px_8px_hsl(0_0%_0%_/_0.08)] transition-all duration-300",
+      isNext && "ring-2 ring-primary shadow-[0_4px_12px_hsl(158_86%_25%_/_0.2)]",
+      prayer.status === 'current' && "ring-2 ring-primary",
+      prayer.status === 'past' && "opacity-60",
+      prayer.status === 'upcoming' && "border border-accent/20"
     )}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className={cn(
-            "p-2 rounded-full",
-            isNext && "bg-prayer-active text-primary-foreground",
-            prayer.status === 'current' && "bg-prayer-active text-primary-foreground",
+            "p-3 rounded-xl",
+            isNext && "bg-primary text-primary-foreground",
+            prayer.status === 'current' && "bg-primary text-primary-foreground",
             prayer.status === 'past' && "bg-muted text-muted-foreground",
-            prayer.status === 'upcoming' && "bg-prayer-upcoming text-primary-foreground"
+            prayer.status === 'upcoming' && "bg-accent/10 text-accent-foreground"
           )}>
-            <Icon className="h-4 w-4" />
+            <Icon className="h-5 w-5" strokeWidth={1.5} />
           </div>
           <div>
             <h3 className={cn(
-              "font-semibold",
-              isNext && "text-prayer-active",
-              prayer.status === 'current' && "text-prayer-active"
+              "font-semibold text-base",
+              isNext && "text-primary",
+              prayer.status === 'current' && "text-primary"
             )}>
               {prayer.name}
             </h3>
             {isNext && (
-              <p className="text-xs text-muted-foreground">Next Prayer</p>
+              <p className="text-xs text-accent font-medium">Next Prayer</p>
             )}
           </div>
         </div>
         <div className={cn(
           "text-right",
-          isNext && "text-prayer-active font-bold text-lg",
-          prayer.status === 'current' && "text-prayer-active font-bold"
+          isNext && "text-primary font-bold text-xl",
+          prayer.status === 'current' && "text-primary font-bold text-lg"
         )}>
-          <span className="font-mono">{prayer.time}</span>
+          <span className="font-mono text-lg">{prayer.time}</span>
+          {isNext && (
+            <p className="text-xs text-muted-foreground mt-1">In 2h 14m</p>
+          )}
         </div>
       </div>
-    </Card>
+    </div>
   );
 }

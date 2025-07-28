@@ -6,120 +6,95 @@
 
 @layer base {
   :root {
-    /* Islamic teal and warm tones */
-    --background: 210 20% 98%;
-    --foreground: 186 100% 12%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 186 100% 12%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 186 100% 12%;
-
-    /* Deep teal primary */
-    --primary: 186 100% 25%;
+    /* Brand Colors - Muslim Pro Inspired */
+    --primary: 158 86% 25%; /* #027E70 Emerald Green */
     --primary-foreground: 0 0% 98%;
-
-    /* Gold accent for highlighted prayers */
-    --secondary: 45 100% 51%;
-    --secondary-foreground: 186 100% 12%;
-
-    --muted: 210 20% 95%;
-    --muted-foreground: 186 50% 35%;
-
-    /* Warm gold accent */
-    --accent: 43 96% 56%;
-    --accent-foreground: 186 100% 12%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 186 30% 85%;
-    --input: 186 20% 92%;
-    --ring: 186 100% 25%;
-
-    /* Prayer time specific colors */
-    --prayer-active: 43 96% 56%;
-    --prayer-upcoming: 186 100% 25%;
-    --prayer-past: 186 20% 65%;
     
-    /* Gradient backgrounds */
-    --gradient-dawn: linear-gradient(135deg, hsl(45 100% 85%), hsl(35 100% 75%));
-    --gradient-day: linear-gradient(135deg, hsl(200 100% 85%), hsl(186 100% 75%));
-    --gradient-sunset: linear-gradient(135deg, hsl(25 100% 75%), hsl(15 100% 65%));
-    --gradient-night: linear-gradient(135deg, hsl(240 30% 25%), hsl(230 40% 15%));
+    --accent: 45 93% 58%; /* #F5B335 Golden Yellow */
+    --accent-foreground: 0 0% 10%;
     
-    /* Smooth animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-    --radius: 0.5rem;
+    --background: 0 0% 98%; /* #F9F9F9 Off-white */
+    --foreground: 0 0% 10%; /* #1A1A1A */
+    
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
+    
+    --muted: 0 0% 93%;
+    --muted-foreground: 0 0% 43%; /* #6D6D6D */
+    
+    --destructive: 0 84% 60%; /* #FF4D4D */
+    --destructive-foreground: 0 0% 98%;
+    
+    --success: 122 57% 52%; /* #4BB543 */
+    --success-foreground: 0 0% 98%;
+    
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 158 86% 25%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    
+    /* Prayer-specific colors */
+    --prayer-active: 158 86% 25%;
+    --prayer-upcoming: 45 93% 58%;
+    --prayer-past: 0 0% 60%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(158 86% 25%), hsl(158 86% 35%));
+    --gradient-welcome: linear-gradient(180deg, hsl(158 86% 25%), hsl(158 60% 45%));
+    
+    /* Shadows */
+    --shadow-card: 0 2px 8px hsl(0 0% 0% / 0.08);
+    --shadow-button: 0 4px 12px hsl(158 86% 25% / 0.2);
+    
+    --radius: 0.75rem; /* 12px for rounded corners */
 
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 158 86% 25%;
     --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 158 86% 25%;
   }
 
   .dark {
-    /* Dark mode with deep navy and gold accents */
-    --background: 230 25% 8%;
-    --foreground: 45 100% 90%;
-
-    --card: 230 25% 12%;
-    --card-foreground: 45 100% 90%;
-
-    --popover: 230 25% 12%;
-    --popover-foreground: 45 100% 90%;
-
-    --primary: 186 100% 65%;
-    --primary-foreground: 230 25% 8%;
-
-    --secondary: 45 100% 60%;
-    --secondary-foreground: 230 25% 8%;
-
-    --muted: 230 20% 20%;
-    --muted-foreground: 186 30% 70%;
-
-    --accent: 43 96% 60%;
-    --accent-foreground: 230 25% 8%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 230 25% 8%;
-
-    --border: 230 20% 25%;
-    --input: 230 20% 20%;
-    --ring: 186 100% 65%;
-
-    /* Dark mode prayer colors */
-    --prayer-active: 43 96% 65%;
-    --prayer-upcoming: 186 100% 55%;
-    --prayer-past: 186 20% 45%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
     
-    /* Dark mode gradients */
-    --gradient-dawn: linear-gradient(135deg, hsl(45 80% 25%), hsl(35 70% 20%));
-    --gradient-day: linear-gradient(135deg, hsl(200 60% 25%), hsl(186 70% 20%));
-    --gradient-sunset: linear-gradient(135deg, hsl(25 70% 25%), hsl(15 80% 20%));
-    --gradient-night: linear-gradient(135deg, hsl(240 40% 15%), hsl(230 50% 10%));
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --primary: 158 86% 30%;
+    --primary-foreground: 0 0% 98%;
+    
+    --accent: 45 93% 65%;
+    --accent-foreground: 0 0% 10%;
+    
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 63%;
+    
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 98%;
+    
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    
+    --gradient-welcome: linear-gradient(180deg, hsl(158 86% 20%), hsl(158 60% 30%));
+    
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 158 86% 30%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 158 86% 30%;
   }
 }
 
